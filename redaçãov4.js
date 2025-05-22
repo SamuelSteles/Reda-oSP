@@ -636,6 +636,31 @@ ${extractedTitle ? 'TITULO: ' + extractedTitle + '\n\nTEXTO:\n' + extractedText 
         }
 
         function initialize() {
+// Ativa automaticamente o modo escuro ao iniciar o script
+const darkCSS = `
+    html, body {
+        background-color: #121212 !important;
+        color: #e0e0e0 !important;
+    }
+    * {
+        background-color: transparent !important;
+        color: #e0e0e0 !important;
+        border-color: #444 !important;
+    }
+    a, a * {
+        color: #9cf !important;
+    }
+    input, textarea, select {
+        background-color: #1e1e1e !important;
+        color: #eee !important;
+        border: 1px solid #555 !important;
+    }
+`;
+const darkModeStyleEl = document.createElement('style');
+darkModeStyleEl.id = 'hck-dark-mode-style';
+darkModeStyleEl.textContent = darkCSS;
+document.head.appendChild(darkModeStyleEl);
+
             logToMemory("initializing..", 'info');
             addBookmarkletStyles();
             createUI();
